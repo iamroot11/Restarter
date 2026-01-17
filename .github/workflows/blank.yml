@@ -1,0 +1,20 @@
+name: Keep Studio Alive
+on:
+  schedule:
+    - cron: "0 */4 * * *" # Runs every 4 hours
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  restart:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Lightning SDK
+        run: pip install lightning-sdk
+      - name: Restart Studio
+        env:
+          LIGHTNING_USER_ID: ${{ secrets.LIGHTNING_USER_ID }}
+          LIGHTNING_API_KEY: ${{ secrets.LIGHTNING_API_KEY }}
+        run: |
+          # Use the SDK to start the studio
+          # If it's already running, this essentially 'refreshes' the 4-hour timer
+          lightning start studio --name "YOUR_STUDIO_NAME"
