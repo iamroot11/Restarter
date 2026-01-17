@@ -17,4 +17,4 @@ jobs:
         run: |
           # Use the SDK to start the studio
           # If it's already running, this essentially 'refreshes' the 4-hour timer
-          lightning start studio --name "confident-orange-4o7uh"
+          lightning start studio "confident-orange-4o7uh"
