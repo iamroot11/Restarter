@@ -17,4 +17,7 @@ jobs:
         run: |
           # Use the SDK to start the studio
           # If it's already running, this essentially 'refreshes' the 4-hour timer
+          lightning studio stop --name "confident-orange-4o7uh" --teamspace "amrutsairam/deploy-model-project"
+          sleep 10
           lightning studio start --name "confident-orange-4o7uh" --teamspace "amrutsairam/deploy-model-project"
+           
